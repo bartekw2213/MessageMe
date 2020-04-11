@@ -1,0 +1,47 @@
+.input-container {
+    position: relative;
+}
+
+.input-container input {
+    width: 100%;
+}
+
+.input-container input {
+    padding: 1rem 2rem;
+    border: 3px solid var(--faded-light-blue);
+    border-radius: 25px;
+    outline: none;
+    color: var(--main-dark-blue);
+    font-weight: 300;
+}
+
+.input-container i {
+    position: absolute;
+    top: 50%;
+    right: 2rem;
+    transform: translateY(-50%);
+    color: var(--faded-light-blue);
+    font-size: 20px;
+}
+
+/* Editing placeholder */
+::placeholder { 
+    color: var(--faded-light-blue);
+    font-weight: 300;
+    font-size: 16px;
+    opacity: 1;
+}
+  
+:-ms-input-placeholder { 
+    color: var(--faded-light-blue);
+}
+  
+::-ms-input-placeholder { 
+    color: var(--faded-light-blue);
+}
+
+@media (max-width: 1366px) {
+    .input-container input {
+        padding: .8rem;
+    }
+}

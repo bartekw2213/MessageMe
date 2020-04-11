@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/global.css">
+    <link rel="stylesheet" href="/style/chat-start.css">
+    <link rel="stylesheet" href="/style/input-styling.css">
+    <link rel="stylesheet" href="/style/select-styling.css">
+    <script src="https://kit.fontawesome.com/b30ea4e9d7.js" crossorigin="anonymous"></script>
+    <title>MessageMe</title>
+</head>
+<body> 
+    <div class="dark-overlay center-content">
+        <div class="chat-start-container">
+            <h1 class="app-title">MessageMe <i class="far fa-comments"></i></h1>
+            <%- include('./partials/flashMessages'); %>
+            <form action="/chat" method="POST">
+                <div class="input-container">
+                    <input name="username" placeholder="Enter your nickname..." type="text" required>
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="custom-select">
+                    <select name="selectedRoom">
+                      <option value="0">Select your room:</option>
+                      <option value="Room_One">Room One</option>
+                      <option value="Room_Two">Room Two</option>
+                      <option value="Room_Three">Room Three</option>
+                    </select>
+                  </div>
+                <button type="submit" class="btn light-blue">Join Room <i class="fas fa-chevron-circle-right"></i></button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/js/select.js"></script>
+</body>
+</html>

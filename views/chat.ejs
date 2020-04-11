@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/global.css">
+    <link rel="stylesheet" href="/style/chat.css">
+    <script src="https://kit.fontawesome.com/b30ea4e9d7.js" crossorigin="anonymous"></script>
+    <title>MessageMe</title>
+</head>
+<body>
+    <div class="dark-overlay center-content">
+        <div class="chat-container">
+            <div class="chat-top-section">
+                <h1 class="app-title">MessageMe <i class="far fa-comments"></i></h1>
+                <a href="/chat-start"><i class="far fa-times-circle fa-3x"></i></a>
+            </div>
+            <div class="chat-bottom-section">
+                <div class="info-section">
+                    <div class="room-info bg-purple">
+                        <h2>Your room:</h2>
+                        <p class="text-center"><i class="fas fa-couch"></i> <%= selectedRoom %></p>
+                    </div>
+                    <div class="users-info bg-purple">
+                        <h2><i class="fas fa-users"></i> Active Users:</h2>
+                        <div id=usersList class="users-list">
+                        </div>
+                    </div>
+                </div>
+                <div class="messages-section">
+                    <div id="messageWindow" class="messages-window"></div>
+                    <div class="sending-box">
+                        <form id="messageForm" action="">
+                            <input id="messageInput" type="text">
+                            <button type="submit">Send message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/chat.js"></script>
+</body>
+</html>

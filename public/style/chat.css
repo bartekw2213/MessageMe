@@ -1,0 +1,134 @@
+.chat-container {
+    background-color: var(--main-dark-blue);
+    width: 1080px;
+    box-shadow: var(--main-box-shadow);
+}
+
+.chat-top-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    border-bottom: var(--chat-border);
+}
+
+.chat-top-section .app-title {
+    font-size: 46px;
+    display: inline-block;
+}
+
+.chat-top-section .fa-times-circle {
+    color: var(--dark-purple);
+    text-shadow: var(--main-text-shadow);
+}
+
+.chat-bottom-section {
+    display: flex;
+    padding: 1rem 0;
+}
+
+.info-section {
+    width: 250px;
+    padding: 0 1rem;
+    border-right: var(--chat-border);
+}
+
+.room-info {
+    margin-bottom: .5rem;
+    padding: .5rem;
+}
+
+.users-info {
+    padding: .5rem;
+}
+
+.users-info h2 {
+    padding-bottom: .3rem;
+    border-bottom: var(--chat-border);
+}
+
+.users-list {
+    padding: .3rem;
+    height: 300px;
+}
+
+.users-list i {
+    color: var(--dots-color);
+}
+
+.messages-section {
+    width: 798px;
+    padding: 0 1.5rem;
+}
+
+.messages-window {
+    background-color: #fff;
+    color: #000;
+    padding: .5rem 1rem;
+    height: 350px;
+    border-radius: 10px;
+    box-shadow: var(--main-box-shadow);
+    overflow-y: scroll;
+}
+
+.messages-window p {
+    font-size: 16px;
+}
+
+.message-container {
+    margin-bottom: .5rem;
+}
+
+.message-container.sender {
+    text-align: right;
+}
+
+.message {
+    background-color: var(--chat-message-bg);
+    display: inline-block;
+    border-radius: 10px;
+    min-width: 200px;
+}
+
+.message-container.sender .message {
+    background-color: var(--chat-message-sender-bg);
+}
+
+.message-top {
+    padding: .3rem .5rem;
+    border-bottom: 1px solid #707070;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.message-bottom {
+    padding: .3rem .5rem;
+}
+
+.sending-box {
+    margin-top: 1rem;
+    background-color: var(--dark-purple);
+    padding: 1rem 3rem;
+    border-radius: 10px;
+    box-shadow: var(--main-box-shadow);
+}
+
+.sending-box input,
+.sending-box button {
+    display: block;
+    width: 100%;
+    padding: .5rem 1rem;
+    outline: none;
+    border-radius: 5px;
+    border: 2px solid var(--main-dark-blue);
+}
+
+.sending-box input {
+  margin-bottom: .5rem;
+}
+
+.sending-box button {
+    background-color: var(--main-dark-blue);
+    letter-spacing: 2px;
+}
