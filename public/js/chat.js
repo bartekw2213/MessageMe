@@ -70,6 +70,7 @@ function appendMsg(msg, additionalClass = '') {
         </div>
     `;
     messageWindow.appendChild(div);
+    messageWindow.scrollTop = messageWindow.scrollHeight - messageWindow.clientHeight;
 };
 
 // Updating users list in the DOM

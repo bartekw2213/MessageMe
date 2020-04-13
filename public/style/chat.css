@@ -50,6 +50,7 @@
 .users-list {
     padding: .3rem;
     height: 300px;
+    overflow-y: auto;
 }
 
 .users-list i {
@@ -131,4 +132,41 @@
 .sending-box button {
     background-color: var(--main-dark-blue);
     letter-spacing: 2px;
+}
+
+@media (max-width: 1366px) {
+    .chat-container {
+        width: 900px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .chat-container {
+        width: 740px;
+    }
+}
+
+@media (max-width: 768px) {
+    .chat-container {
+        width: 100%;
+    }
+
+    .info-section {
+        display: none;
+    }
+}
+
+@media (max-width: 470px) {
+    .chat-top-section h1.app-title,
+    .chat-top-section i {
+        font-size: 32px
+    }
+
+    .messages-window p {
+        font-size: 12px;
+    }
+
+    .sending-box {
+        padding: 1rem;
+    }
 }
