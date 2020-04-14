@@ -9,7 +9,7 @@ const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 
 // Database connection
-mongoose.connect(process.env.MongooseURI, {
+mongoose.connect(process.env.MONGOOSE_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
