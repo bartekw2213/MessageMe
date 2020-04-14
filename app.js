@@ -28,29 +28,35 @@ io.on('connection', socket => {
     // emiting info about new user to others, emiting welcoming message
     socket.on('joinedRoom', user => {
         connectedUser = user;
-        socket.join(connectedUser.selectedRoom);
-        socket.broadcast.to(connectedUser.selectedRoom).emit('joinedUser', connectedUser);
-
-        socket.broadcast.to(connectedUser.selectedRoom).emit('other-message', formatMsg('ChatBot', `${connectedUser.username} joined chat room`));
-        socket.emit('my-message', formatMsg('ChatBot', `Hello, welcome to MessageMe`));
+        if (connectedUser) {
+            socket.join(connectedUser.selectedRoom);
+            socket.broadcast.to(connectedUser.selectedRoom).emit('joinedUser', connectedUser);
+    
+            socket.broadcast.to(connectedUser.selectedRoom).emit('other-message', formatMsg('ChatBot', `${connectedUser.username} joined chat room`));
+            socket.emit('my-message', formatMsg('ChatBot', `Hello, welcome to MessageMe`));
+        }
     })
 
     // Deleting user from ChatUsers database, sending message to delete user on active users list,
     // emiting info about leaving to ohers
     socket.on('disconnect', () => {
-        ChatUser.deleteOne({username: connectedUser.username, selectedRoom: connectedUser.selectedRoom}, function(err) {
-            if(err) console.log(err);
-        });
+        if(connectedUser) {
+            ChatUser.deleteOne({username: connectedUser.username, selectedRoom: connectedUser.selectedRoom}, function(err) {
+                if(err) console.log(err);
+            });
 
-        socket.leave(connectedUser.selectedRoom);
-        socket.broadcast.to(connectedUser.selectedRoom).emit('leftUser', connectedUser);
-        socket.broadcast.to(connectedUser.selectedRoom).emit('other-message', formatMsg('ChatBot', `${connectedUser.username} left chat room`));
+            socket.leave(connectedUser.selectedRoom);
+            socket.broadcast.to(connectedUser.selectedRoom).emit('leftUser', connectedUser);
+            socket.broadcast.to(connectedUser.selectedRoom).emit('other-message', formatMsg('ChatBot', `${connectedUser.username} left chat room`));
+        }
     });
 
     // Receiving chat message and passing it forward to Frontend
     socket.on('chat-message', msg => {
-        socket.broadcast.to(connectedUser.selectedRoom).emit('other-message', formatMsg(connectedUser.username, msg));
-        socket.emit('my-message', formatMsg(connectedUser.username, msg));
+        if(connectedUser) {
+            socket.broadcast.to(connectedUser.selectedRoom).emit('other-message', formatMsg(connectedUser.username, msg));
+            socket.emit('my-message', formatMsg(connectedUser.username, msg));
+        }
     })
 })
 
