@@ -8,6 +8,8 @@ const app = express();
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 
+console.log(process.env)
+
 // Database connection
 mongoose.connect(process.env.MONGOOSE_URI, {
     useNewUrlParser: true,
