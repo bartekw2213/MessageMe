@@ -9,7 +9,7 @@ const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 
 // Database connection
-mongoose.connect(require('./keys/keys').mongooseURI, {
+mongoose.connect(process.env.MongooseURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
@@ -60,7 +60,7 @@ app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 app.use(express.urlencoded({extended: false}));
 app.use(session({
-    secret: require('./keys/keys').sessionSecret,
+    secret: process.env.sessionSecret,
     resave: false,
     saveUninitialized: false
 }));
